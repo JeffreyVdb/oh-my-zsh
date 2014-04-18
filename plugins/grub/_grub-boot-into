@@ -4,10 +4,13 @@ local curcontext="$curcontext" state line
 _arguments -C \
     '1: :->menuentry'
 
+IFS=$'\n'
+
 case $state in 
     menuentry)
-        _values "Menu Entries" \
-            "test foobar"
+        for line in $(sudo grep -E "^\s*?menuentry\s" /boot/grub2/grub.cfg | cut -d "'" -f 2); do
+            compadd "$line"
+        done 
         ret=0
         ;;
 esac
