@@ -1,0 +1,15 @@
+#compdef grub-boot-into
+
+local curcontext="$curcontext" state line
+_arguments -C \
+    '1: :->menuentry'
+
+case $state in 
+    menuentry)
+        _values "Menu Entries" \
+            "test foobar"
+        ret=0
+        ;;
+esac
+
+return ret
