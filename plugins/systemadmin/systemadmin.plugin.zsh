@@ -54,6 +54,11 @@ killit() {
     ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
 }
 
+mkcd() {
+    mkdir $1
+    cd $1
+}
+
 # list contents of directories in a tree-like format
 if [ -z "\${which tree}" ]; then
   tree () {
