@@ -135,7 +135,7 @@ httpstatus() {
 
 # Delete 0 byte file
 d0() {
-    find "$(retval $1)" -type f -size 0 -exec rm -rf {} \;
+    find "$(retval $1)" -type f -size 0 -exec rm -i {} \;
 }
 
 # gather external ip address
