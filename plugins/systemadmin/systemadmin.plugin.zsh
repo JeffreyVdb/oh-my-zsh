@@ -49,6 +49,11 @@ dls () {
 psgrep() {
     ps aux | grep "$(retval $1)" | grep -v grep
 }
+
+pidgrep() {
+   ps aux | grep -v grep | grep $1 | awk '{print $2}' | perl -pe 's/\n/ /g' | perl -pe 's/\s*$/\n/' 
+}
+
 # Kills any process that matches a regexp passed to it
 killit() {
     ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill
