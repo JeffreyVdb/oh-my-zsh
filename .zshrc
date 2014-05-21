@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -79,3 +80,5 @@ source /usr/bin/virtualenvwrapper.sh
 TERM='xterm-256color'
 export TERM="$TERM"
 alias tmux="TERM=$TERM tmux -2"
+hash -d devp="$HOME/Development"
+hash -d phpdev="$HOME/Development/php-sites"
