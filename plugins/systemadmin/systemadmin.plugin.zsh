@@ -54,6 +54,9 @@ pidgrep() {
    ps aux | grep -v grep | grep $1 | awk '{print $2}' | perl -pe 's/\n/ /g' | perl -pe 's/\s*$/\n/' 
 }
 
+# on above alias, use this global one
+alias -g BYE='|xargs kill -9'
+
 # Kills any process that matches a regexp passed to it
 killit() {
     ps aux | grep -v "grep" | grep "$@" | awk '{print $2}' | xargs sudo kill

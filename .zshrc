@@ -46,14 +46,14 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git grub systemd systemadmin zsh-syntax-highlighting aliases yum)
+plugins=(git grub systemd systemadmin zsh-syntax-highlighting aliases yum vagrant)
 
 source $ZSH/oh-my-zsh.sh
 #source $ZSH/aliases.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/jeffrey/.local/bin:/home/jeffrey/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/jeffrey/.local/bin:/home/jeffrey/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -82,3 +82,6 @@ export TERM="$TERM"
 alias tmux="TERM=$TERM tmux -2"
 hash -d devp="$HOME/Development"
 hash -d phpdev="$HOME/Development/php-sites"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias tar='tar --use-compress-program=pxz'
