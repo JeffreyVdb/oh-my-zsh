@@ -46,7 +46,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git grub systemd systemadmin zsh-syntax-highlighting aliases yum vagrant)
+plugins=(git grub systemd systemadmin zsh-syntax-highlighting aliases yum vagrant secrets)
 
 source $ZSH/oh-my-zsh.sh
 #source $ZSH/aliases.sh
@@ -69,19 +69,21 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-PERL_VIRT_ENV="default"
-PERL_VIRT_ENV_PATH="$HOME/.perlenvs/$PERL_VIRT_ENV/lib/perl5"
-eval $(perl -I"$HOME/.perlenvs/default/lib/perl5" -Mlocal::lib="$PERL_VIRT_ENV_PATH")
+#PERL_VIRT_ENV="default"
+#PERL_VIRT_ENV_PATH="$HOME/.perlenvs/$PERL_VIRT_ENV/lib/perl5"
+#eval $(perl -I"$HOME/.perlenvs/default/lib/perl5" -Mlocal::lib="$PERL_VIRT_ENV_PATH")
 
 # virtual environments
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+#export WORKON_HOME=~/.virtualenvs
+#source /usr/bin/virtualenvwrapper.sh
+#
+eval $(dircolors $HOME/.dircolors)
 
 TERM='xterm-256color'
 export TERM="$TERM"
 alias tmux="TERM=$TERM tmux -2"
-hash -d devp="$HOME/Development"
-hash -d phpdev="$HOME/Development/php-sites"
+hash -d devp="$HOME/Devel"
+hash -d phpdev="$HOME/Devel/php-sites"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias tar='tar --use-compress-program=pxz'
