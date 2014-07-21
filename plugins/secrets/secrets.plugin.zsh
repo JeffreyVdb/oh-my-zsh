@@ -12,12 +12,5 @@ genbtsynckey() {
 }
 
 genpassword() {
-    local ALLOWED='A-Za-z+.)(}{/$%&*=''?"@!^\-<>:;,'
-    local len="$1"
-    if [ -z "$len" ]; then
-        len=20
-    fi
-
-    tr -dc "$ALLOWED" < /dev/urandom | head -c $len
-    echo
+    apg -c "$(head -c 32 /dev/random|base64)" -a 1 -m $1 -n 6
 }

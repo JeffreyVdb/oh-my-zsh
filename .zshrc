@@ -85,5 +85,5 @@ alias tmux="TERM=$TERM tmux -2"
 hash -d devp="$HOME/Devel"
 hash -d phpdev="$HOME/Devel/php-sites"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/.composer/vendor/bin" # Add RVM to PATH for scripting
 alias tar='tar --use-compress-program=pxz'
