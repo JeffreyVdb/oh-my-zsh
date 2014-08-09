@@ -85,5 +85,19 @@ alias tmux="TERM=$TERM tmux -2"
 hash -d devp="$HOME/Devel"
 hash -d phpdev="$HOME/Devel/php-sites"
 
+QUICK_ACCESS_PATH="$HOME/Devel/current"
+addQuickAccess() {
+    ln -s $(readlink -f $1) $QUICK_ACCESS_PATH/$(basename $1)
+    makeQuickAccessHashes
+}
+
+makeQuickAccessHashes() {
+    for quickdir in $QUICK_ACCESS_PATH/*; do
+        hash -d $(basename $quickdir)="$quickdir"
+    done
+}
+
+makeQuickAccessHashes
+
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.composer/vendor/bin" # Add RVM to PATH for scripting
-alias tar='tar --use-compress-program=pxz'
+alias xztar='tar --use-compress-program=pxz'
