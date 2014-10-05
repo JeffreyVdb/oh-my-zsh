@@ -46,7 +46,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git grub systemd systemadmin zsh-syntax-highlighting aliases yum vagrant secrets)
+plugins=(git grub systemd systemadmin debian zsh-syntax-highlighting aliases yum vagrant secrets archlinux)
 
 source $ZSH/oh-my-zsh.sh
 #source $ZSH/aliases.sh
@@ -55,6 +55,9 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/jeffrey/.local/bin:/home/jeffrey/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# OPTIONS
+#setopt autopushcd
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -92,7 +95,7 @@ addQuickAccess() {
 }
 
 makeQuickAccessHashes() {
-    for quickdir in $QUICK_ACCESS_PATH/*; do
+    for quickdir in $QUICK_ACCESS_PATH/*(N); do
         hash -d $(basename $quickdir)="$quickdir"
     done
 }
@@ -100,4 +103,5 @@ makeQuickAccessHashes() {
 makeQuickAccessHashes
 
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.composer/vendor/bin" # Add RVM to PATH for scripting
+export VAGRANT_VMWARE_CLONE_DIRECTORY="~/Virtual/vagrant/VMware"
 alias xztar='tar --use-compress-program=pxz'
