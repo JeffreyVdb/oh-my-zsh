@@ -1,0 +1,2 @@
+alias tmux="TERM=screen-256color tmux -2"
+alias xztar='tar --use-compress-program=pxz'

@@ -18,3 +18,6 @@ alias la4='php artisan'
 alias la4dump='php artisan dump-autoload'
 alias la4cache='php artisan cache:clear'
 alias la4routes='php artisan routes'
+
+alias artisan='php artisan'
+alias artrl='php artisan route:list'

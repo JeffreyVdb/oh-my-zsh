@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="candy"
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -46,7 +46,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git grub systemd systemadmin debian zsh-syntax-highlighting aliases yum vagrant secrets archlinux)
+plugins=(git systemd systemadmin zsh-syntax-highlighting aliases yum vagrant tmux artisan)
 
 source $ZSH/oh-my-zsh.sh
 #source $ZSH/aliases.sh
@@ -82,9 +82,10 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/
 #
 eval $(dircolors $HOME/.dircolors)
 
-TERM='xterm-256color'
+TERM='screen-256color'
 export TERM="$TERM"
-alias tmux="TERM=$TERM tmux -2"
+
+
 hash -d devp="$HOME/Devel"
 hash -d phpdev="$HOME/Devel/php-sites"
 
@@ -104,4 +105,8 @@ makeQuickAccessHashes
 
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.composer/vendor/bin" # Add RVM to PATH for scripting
 export VAGRANT_VMWARE_CLONE_DIRECTORY="~/Virtual/vagrant/VMware"
-alias xztar='tar --use-compress-program=pxz'
+
+source $ZSH/aliases
+source $ZSH/paths
+
+setopt extended_glob
