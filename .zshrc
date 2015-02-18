@@ -110,3 +110,4 @@ source $ZSH/aliases
 source $ZSH/paths
 
 setopt extended_glob
+stty -ixon
