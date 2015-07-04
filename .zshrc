@@ -46,7 +46,7 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git systemd systemadmin zsh-syntax-highlighting aliases yum vagrant tmux artisan)
+plugins=(git systemd systemadmin zsh-syntax-highlighting aliases yum vagrant tmux artisan debian)
 
 source $ZSH/oh-my-zsh.sh
 #source $ZSH/aliases.sh
@@ -106,8 +106,32 @@ makeQuickAccessHashes
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.composer/vendor/bin" # Add RVM to PATH for scripting
 export VAGRANT_VMWARE_CLONE_DIRECTORY="~/Virtual/vagrant/VMware"
 
-source $ZSH/aliases
-source $ZSH/paths
-
 setopt extended_glob
 stty -ixon
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+source $ZSH/exports
+source $ZSH/aliases
+source $ZSH/paths
+# source $ZSH/tmux
+
+
+# Homestead
+HSPATH="$USER/.composer/vendor/laravel/homestead"
+hscmd() {
+	pushd $HSPATH &>/dev/null
+	vagrant $@
+	popd &>/dev/null
+}
+
+alias hs="ssh vagrant@127.0.0.1 -p 2222"
+alias hshalt="hscmd halt"
+alias hsup="hscmd up"
+
+PATH="/home/jeffrey/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/jeffrey/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jeffrey/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jeffrey/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jeffrey/perl5"; export PERL_MM_OPT;
+
+export WORKON_HOME="~/.envs"
