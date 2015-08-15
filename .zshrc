@@ -113,6 +113,7 @@ stty -ixon
 source $ZSH/exports
 source $ZSH/aliases
 source $ZSH/paths
+source $ZSH/go
 # source $ZSH/tmux
 
 
@@ -135,3 +136,9 @@ PERL_MB_OPT="--install_base \"/home/jeffrey/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jeffrey/perl5"; export PERL_MM_OPT;
 
 export WORKON_HOME="~/.envs"
+
+# check for python virtualenvwrapper
+virtualenvwrapper=$(which virtualenvwrapper.sh)
+if [ $? -eq 0 ]; then
+	source $virtualenvwrapper
+fi

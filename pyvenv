@@ -1,0 +1,4 @@
+#!/bin/bash
+PYVENV_DIR="$HOME/.venvs"
+
+function venv_

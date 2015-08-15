@@ -1,17 +1,25 @@
 ## Aliases
 
-alias ys="yum search"                       # search package
-alias yp="yum info"                         # show package info
-alias yl="yum list"                         # list packages
-alias ygl="yum grouplist"                   # list package groups
-alias yli="yum list installed"              # print all installed packages
-alias ymc="yum makecache"                   # rebuilds the yum package list
+if which dnf &>/dev/null; then
+	CMD="dnf"
+	PREFIX="dnf"
+else
+	CMD="yum"
+	PREFIX="y"
+fi
 
-alias yu="sudo yum update"                  # upgrate packages
-alias yi="sudo yum install"                 # install package
-alias ygi="sudo yum groupinstall"           # install package group
-alias yir="sudo yum reinstall"              # Reinstall package
-alias yr="sudo yum remove"                  # remove package
-alias ygr="sudo yum groupremove"            # remove pagage group
-alias yrl="sudo yum remove --remove-leaves" # remove package and leaves
-alias yc="sudo yum clean all"               # clean cache
+alias ${PREFIX}s="${CMD} search"                       # search package
+alias ${PREFIX}p="${CMD} info"                         # show package info
+alias ${PREFIX}l="${CMD} list"                         # list packages
+alias ${PREFIX}gl="${CMD} grouplist"                   # list package groups
+alias ${PREFIX}li="${CMD} list installed"              # print all installed packages
+alias ${PREFIX}mc="${CMD} makecache"                   # rebuilds the dnf package list
+
+alias ${PREFIX}u="sudo ${CMD} update"                  # upgrate packages
+alias ${PREFIX}i="sudo ${CMD} install"                 # install package
+alias ${PREFIX}gi="sudo ${CMD} groupinstall"           # install package group
+alias ${PREFIX}ir="sudo ${CMD} reinstall"              # Reinstall package
+alias ${PREFIX}r="sudo ${CMD} remove"                  # remove package
+alias ${PREFIX}gr="sudo ${CMD} groupremove"            # remove pagage group
+alias ${PREFIX}rl="sudo ${CMD} remove --remove-leaves" # remove package and leaves
+alias ${PREFIX}c="sudo ${CMD} clean all"               # clean cache

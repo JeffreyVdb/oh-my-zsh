@@ -5,3 +5,5 @@ alias xztar='tar --use-compress-program=pxz'
 function hsnewdomain() {
     echo "192.168.10.10 $1" | sudo tee -a /etc/hosts
 }
+
+alias please='sudo $(fc -ln -1)'
